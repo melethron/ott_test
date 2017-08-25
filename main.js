@@ -63,12 +63,12 @@ function move_up(coord) {
 }
 
 function taskAnswer() {
-    var steps_horiz = 1;
-    var steps_vertic = 1;
+    var steps = 1;
+    //var steps_vertic = 1;
     var counter = 0;
     var result = matrix[coord[0]][coord[1]].toString();
-    while (steps_horiz < matrix.length) {
-        for (var i = 0; i < steps_horiz; i++) {
+    while (steps < matrix.length) {
+        for (var i = 0; i < steps; i++) {
             if (counter % 2 === 0) {
                 move_left(coord);
             }
@@ -77,8 +77,8 @@ function taskAnswer() {
             }
             result = result.concat(" ", matrix[coord[0]][coord[1]]);            
         }            
-        steps_horiz++;
-        for (var i = 0; i < steps_vertic; i++) {
+        //steps_horiz++;
+        for (var i = 0; i < steps; i++) {
             if (counter % 2 === 0) {
                 move_down(coord);
             }
@@ -87,7 +87,7 @@ function taskAnswer() {
             }
             result = result.concat(" ", matrix[coord[0]][coord[1]]);
         }
-        steps_vertic++;
+        steps++;
         counter++;            
     }
     for (var i=0; i < matrix.length-1; i++) {
